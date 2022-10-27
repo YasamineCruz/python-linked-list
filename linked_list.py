@@ -54,7 +54,13 @@ class LinkedList:
 
   # TODO: Implement the add_to_tail method here
   def add_to_tail(self, value):
-    pass
+    self._length += 1
+    new = Node(value)
+    if not self._head:
+      self._head = new
+    else:
+       self._tail.next = new
+       self._tail = new
 
   # TODO: Implement the add_to_head method here
   def add_to_head(self, value):
@@ -107,9 +113,9 @@ print(linked_list)                              # <__main__.LinkedList object at
 print(linked_list.get_node(0))                # None
 
 # # 3. Test adding a node to the list's tail
-# linked_list.add_to_tail('new tail node')
-# print(linked_list.get_node(0))                # <__main__.Node object at ...>
-# print(linked_list.get_node(0)._value)         # `new tail node`
+linked_list.add_to_tail('new tail node')
+print(linked_list.get_node(0))                # <__main__.Node object at ...>
+print(linked_list.get_node(0)._value)         # `new tail node`
 
 # # 4. Test adding a node to list's head
 # linked_list.add_to_head('new head node')
