@@ -64,7 +64,14 @@ class LinkedList:
 
   # TODO: Implement the add_to_head method here
   def add_to_head(self, value):
-    pass
+    new = Node(value)
+    if self._length == 0:
+      self._head = new
+      self._tail = new
+    else:
+      self._head.next = self._head
+      self._head = new
+    self._length += 1
 
   # TODO: Implement the remove_head method here
   def remove_head(self):
@@ -118,9 +125,9 @@ print(linked_list.get_node(0))                # <__main__.Node object at ...>
 print(linked_list.get_node(0)._value)         # `new tail node`
 
 # # 4. Test adding a node to list's head
-# linked_list.add_to_head('new head node')
-# print(linked_list.get_node(0))                # <__main__.Node object at ...>
-# print(linked_list.get_node(0)._value)         # `new head node`
+linked_list.add_to_head('new head node')
+print(linked_list.get_node(0))                # <__main__.Node object at ...>
+print(linked_list.get_node(0)._value)         # `new head node`
 
 # # 5. Test removing the head node
 # linked_list.remove_head()
