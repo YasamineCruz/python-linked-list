@@ -75,7 +75,13 @@ class LinkedList:
 
   # TODO: Implement the remove_head method here
   def remove_head(self):
-    pass
+    removed = self._head
+    if self._length > 0:
+      self._head = self._head.next
+      self._length -= 1
+      if self._length == 0:
+        self._tail = None
+    return removed
 
   # TODO: Implement the remove_tail method here
   def remove_tail(self):
@@ -130,9 +136,9 @@ print(linked_list.get_node(0))                # <__main__.Node object at ...>
 print(linked_list.get_node(0)._value)         # `new head node`
 
 # # 5. Test removing the head node
-# linked_list.remove_head()
-# print(linked_list.get_node(0)._value)         # `new tail node` because `new head node` has been removed
-# print(linked_list.get_node(1))                # `None` because `new head node` has been removed
+linked_list.remove_head()
+print(linked_list.get_node(0)._value)         # `new tail node` because `new head node` has been removed
+print(linked_list.get_node(1))                # `None` because `new head node` has been removed
 
 # # 6. Test removing the tail node
 # print(linked_list.get_node(0)._value)         # `new tail node`
